@@ -18,194 +18,194 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// SimpleBankClient is the client API for SimpleBank service.
+// GoBankClient is the client API for GoBank service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SimpleBankClient interface {
+type GoBankClient interface {
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error)
 	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error)
 	LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error)
 	VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error)
 }
 
-type simpleBankClient struct {
+type goBankClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSimpleBankClient(cc grpc.ClientConnInterface) SimpleBankClient {
-	return &simpleBankClient{cc}
+func NewGoBankClient(cc grpc.ClientConnInterface) GoBankClient {
+	return &goBankClient{cc}
 }
 
-func (c *simpleBankClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
+func (c *goBankClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*CreateUserResponse, error) {
 	out := new(CreateUserResponse)
-	err := c.cc.Invoke(ctx, "/pb.SimpleBank/CreateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.GoBank/CreateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *simpleBankClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
+func (c *goBankClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*UpdateUserResponse, error) {
 	out := new(UpdateUserResponse)
-	err := c.cc.Invoke(ctx, "/pb.SimpleBank/UpdateUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.GoBank/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *simpleBankClient) LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error) {
+func (c *goBankClient) LoginUser(ctx context.Context, in *LoginUserRequest, opts ...grpc.CallOption) (*LoginUserResponse, error) {
 	out := new(LoginUserResponse)
-	err := c.cc.Invoke(ctx, "/pb.SimpleBank/LoginUser", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.GoBank/LoginUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *simpleBankClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error) {
+func (c *goBankClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error) {
 	out := new(VerifyEmailResponse)
-	err := c.cc.Invoke(ctx, "/pb.SimpleBank/VerifyEmail", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.GoBank/VerifyEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SimpleBankServer is the server API for SimpleBank service.
-// All implementations must embed UnimplementedSimpleBankServer
+// GoBankServer is the server API for GoBank service.
+// All implementations must embed UnimplementedGoBankServer
 // for forward compatibility
-type SimpleBankServer interface {
+type GoBankServer interface {
 	CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error)
 	UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error)
 	LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error)
 	VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error)
-	mustEmbedUnimplementedSimpleBankServer()
+	mustEmbedUnimplementedGoBankServer()
 }
 
-// UnimplementedSimpleBankServer must be embedded to have forward compatible implementations.
-type UnimplementedSimpleBankServer struct {
+// UnimplementedGoBankServer must be embedded to have forward compatible implementations.
+type UnimplementedGoBankServer struct {
 }
 
-func (UnimplementedSimpleBankServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
+func (UnimplementedGoBankServer) CreateUser(context.Context, *CreateUserRequest) (*CreateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedSimpleBankServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
+func (UnimplementedGoBankServer) UpdateUser(context.Context, *UpdateUserRequest) (*UpdateUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedSimpleBankServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
+func (UnimplementedGoBankServer) LoginUser(context.Context, *LoginUserRequest) (*LoginUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
 }
-func (UnimplementedSimpleBankServer) VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error) {
+func (UnimplementedGoBankServer) VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmail not implemented")
 }
-func (UnimplementedSimpleBankServer) mustEmbedUnimplementedSimpleBankServer() {}
+func (UnimplementedGoBankServer) mustEmbedUnimplementedGoBankServer() {}
 
-// UnsafeSimpleBankServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SimpleBankServer will
+// UnsafeGoBankServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GoBankServer will
 // result in compilation errors.
-type UnsafeSimpleBankServer interface {
-	mustEmbedUnimplementedSimpleBankServer()
+type UnsafeGoBankServer interface {
+	mustEmbedUnimplementedGoBankServer()
 }
 
-func RegisterSimpleBankServer(s grpc.ServiceRegistrar, srv SimpleBankServer) {
-	s.RegisterService(&SimpleBank_ServiceDesc, srv)
+func RegisterGoBankServer(s grpc.ServiceRegistrar, srv GoBankServer) {
+	s.RegisterService(&GoBank_ServiceDesc, srv)
 }
 
-func _SimpleBank_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GoBank_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SimpleBankServer).CreateUser(ctx, in)
+		return srv.(GoBankServer).CreateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.SimpleBank/CreateUser",
+		FullMethod: "/pb.GoBank/CreateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SimpleBankServer).CreateUser(ctx, req.(*CreateUserRequest))
+		return srv.(GoBankServer).CreateUser(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SimpleBank_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GoBank_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SimpleBankServer).UpdateUser(ctx, in)
+		return srv.(GoBankServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.SimpleBank/UpdateUser",
+		FullMethod: "/pb.GoBank/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SimpleBankServer).UpdateUser(ctx, req.(*UpdateUserRequest))
+		return srv.(GoBankServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SimpleBank_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GoBank_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(LoginUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SimpleBankServer).LoginUser(ctx, in)
+		return srv.(GoBankServer).LoginUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.SimpleBank/LoginUser",
+		FullMethod: "/pb.GoBank/LoginUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SimpleBankServer).LoginUser(ctx, req.(*LoginUserRequest))
+		return srv.(GoBankServer).LoginUser(ctx, req.(*LoginUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SimpleBank_VerifyEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _GoBank_VerifyEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(VerifyEmailRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SimpleBankServer).VerifyEmail(ctx, in)
+		return srv.(GoBankServer).VerifyEmail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/pb.SimpleBank/VerifyEmail",
+		FullMethod: "/pb.GoBank/VerifyEmail",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SimpleBankServer).VerifyEmail(ctx, req.(*VerifyEmailRequest))
+		return srv.(GoBankServer).VerifyEmail(ctx, req.(*VerifyEmailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SimpleBank_ServiceDesc is the grpc.ServiceDesc for SimpleBank service.
+// GoBank_ServiceDesc is the grpc.ServiceDesc for GoBank service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SimpleBank_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.SimpleBank",
-	HandlerType: (*SimpleBankServer)(nil),
+var GoBank_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.GoBank",
+	HandlerType: (*GoBankServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateUser",
-			Handler:    _SimpleBank_CreateUser_Handler,
+			Handler:    _GoBank_CreateUser_Handler,
 		},
 		{
 			MethodName: "UpdateUser",
-			Handler:    _SimpleBank_UpdateUser_Handler,
+			Handler:    _GoBank_UpdateUser_Handler,
 		},
 		{
 			MethodName: "LoginUser",
-			Handler:    _SimpleBank_LoginUser_Handler,
+			Handler:    _GoBank_LoginUser_Handler,
 		},
 		{
 			MethodName: "VerifyEmail",
-			Handler:    _SimpleBank_VerifyEmail_Handler,
+			Handler:    _GoBank_VerifyEmail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

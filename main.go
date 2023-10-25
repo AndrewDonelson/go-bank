@@ -90,7 +90,7 @@ func runGrpcServer(config util.Config, store db.Store, taskDistributor worker.Ta
 
 	gprcLogger := grpc.UnaryInterceptor(gapi.GrpcLogger)
 	grpcServer := grpc.NewServer(gprcLogger)
-	pb.RegisterSimpleBankServer(grpcServer, server)
+	pb.RegisterGoBankServer(grpcServer, server)
 	reflection.Register(grpcServer)
 
 	listener, err := net.Listen("tcp", config.GRPCServerAddress)
@@ -125,7 +125,7 @@ func runGatewayServer(config util.Config, store db.Store, taskDistributor worker
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	err = pb.RegisterSimpleBankHandlerServer(ctx, grpcMux, server)
+	err = pb.RegisterGoBankHandlerServer(ctx, grpcMux, server)
 	if err != nil {
 		log.Fatal().Err(err).Msg("cannot register handler server")
 	}

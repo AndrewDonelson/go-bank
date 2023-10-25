@@ -11,7 +11,7 @@
   },
   "tags": [
     {
-      "name": "SimpleBank"
+      "name": "GoBank"
     }
   ],
   "consumes": [
@@ -25,7 +25,7 @@
       "post": {
         "summary": "Create new user",
         "description": "Use this API to create a new user",
-        "operationId": "SimpleBank_CreateUser",
+        "operationId": "GoBank_CreateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -51,7 +51,7 @@
           }
         ],
         "tags": [
-          "SimpleBank"
+          "GoBank"
         ]
       }
     },
@@ -59,7 +59,7 @@
       "post": {
         "summary": "Login user",
         "description": "Use this API to login user and get access token \u0026 refresh token",
-        "operationId": "SimpleBank_LoginUser",
+        "operationId": "GoBank_LoginUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -85,7 +85,7 @@
           }
         ],
         "tags": [
-          "SimpleBank"
+          "GoBank"
         ]
       }
     },
@@ -93,7 +93,7 @@
       "patch": {
         "summary": "Update user",
         "description": "Use this API to update user",
-        "operationId": "SimpleBank_UpdateUser",
+        "operationId": "GoBank_UpdateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -119,7 +119,7 @@
           }
         ],
         "tags": [
-          "SimpleBank"
+          "GoBank"
         ]
       }
     },
@@ -127,7 +127,7 @@
       "get": {
         "summary": "Verify email",
         "description": "Use this API to verify user's email address",
-        "operationId": "SimpleBank_VerifyEmail",
+        "operationId": "GoBank_VerifyEmail",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -158,7 +158,7 @@
           }
         ],
         "tags": [
-          "SimpleBank"
+          "GoBank"
         ]
       }
     }
