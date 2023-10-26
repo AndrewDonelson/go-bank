@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-bank-api-service
+  name: go-bank-api-service
 spec:
   selector:
-    app: simple-bank-api
+    app: go-bank-api
   ports:
     - protocol: TCP
       port: 80

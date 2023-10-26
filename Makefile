@@ -1,5 +1,8 @@
 DB_URL=postgresql://root:secret@localhost:5432/go-bank?sslmode=disable
 
+docker:
+	docker build -t go-bank .
+
 network:
 	docker network create bank-network
 
@@ -65,4 +68,4 @@ evans:
 redis:
 	docker run --name redis -p 6379:6379 -d redis:7-alpine
 
-.PHONY: network postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 new_migration db_docs db_schema sqlc test server mock proto evans redis
+.PHONY: docker network postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 new_migration db_docs db_schema sqlc test server mock proto evans redis
