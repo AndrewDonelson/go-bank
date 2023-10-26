@@ -2,6 +2,8 @@
 
 Simple Bank written with Golang, Postgres, Redis, Gin, gRPC, Docker, Kubernetes, AWS and CI/CD using Github Actions.
 
+[![Run unit tests](https://github.com/AndrewDonelson/go-bank/actions/workflows/test.yml/badge.svg)](https://github.com/AndrewDonelson/go-bank/actions/workflows/test.yml)
+
 ## Tools Used
 
 - [Golang](https://golang.org/)
