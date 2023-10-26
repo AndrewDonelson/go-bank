@@ -1,6 +1,6 @@
 # go-bank
 
-Simple Bank written with Golang, Postgres, Redis, Gin, gRPC, Docker, Kubernetes, AWS, CI/CD
+Simple Bank written with Golang, Postgres, Redis, Gin, gRPC, Docker, Kubernetes, AWS and CI/CD using Github Actions.
 
 ## Tools Used
 
