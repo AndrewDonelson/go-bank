@@ -5,7 +5,7 @@ metadata:
   labels:
     app: go-bank-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: go-bank-api
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: go-bank-api
-        image: 682440847123.dkr.ecr.us-east-2.amazonaws.com/gobank:0161900428be81fbc640ce31bf5b73ccf92b8cba
+        image: 682440847123.dkr.ecr.us-east-2.amazonaws.com/gobank:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
