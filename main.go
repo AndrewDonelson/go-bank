@@ -164,4 +164,5 @@ func runGinServer(config util.Config, store db.Store) {
 	if err != nil {
 		log.Fatal().Err(err).Msg("cannot start server")
 	}
+
 }
